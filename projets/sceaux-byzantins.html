@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecture automatique des monogrammes de sceaux byzantins — Ezéchiel Sawadogo</title>
+<meta name="description" content="Pipeline de détection (YOLOv8s) et de classification (ResNet18) des caractères grecs dans les monogrammes de sceaux byzantins — mémoire de M1 d'Ezéchiel Sawadogo, Sorbonne Université, projet ANR BHAI.">
+<meta name="author" content="Ezéchiel Sawadogo">
+<link rel="canonical" href="https://ezechiel-sawadogo-nlp.github.io/projets/sceaux-byzantins.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lecture automatique des monogrammes de sceaux byzantins — Ezéchiel Sawadogo">
+<meta property="og:description" content="Pipeline de détection (YOLOv8s) et de classification (ResNet18) des caractères grecs dans les monogrammes de sceaux byzantins — mémoire de M1 d'Ezéchiel Sawadogo, Sorbonne Université, projet ANR BHAI.">
+<meta property="og:url" content="https://ezechiel-sawadogo-nlp.github.io/projets/sceaux-byzantins.html">
+<meta property="og:image" content="https://ezechiel-sawadogo-nlp.github.io/assets/img/sceau-byzantin.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CreativeWork",
+ "name": "Reconnaître des caractères dans des monogrammes de sceaux byzantins",
+ "description": "Pipeline de détection (YOLOv8s) et de classification (ResNet18) des caractères grecs dans les monogrammes de sceaux byzantins — mémoire de M1 d'Ezéchiel Sawadogo, Sorbonne Université, projet ANR BHAI.",
+ "author": {
+  "@type": "Person",
+  "name": "Ezéchiel Sawadogo",
+  "url": "https://ezechiel-sawadogo-nlp.github.io/"
+ },
+ "url": "https://ezechiel-sawadogo-nlp.github.io/projets/sceaux-byzantins.html"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="band"><div class="wrap">
+  <span>Disponible pour un stage de fin d'études NLP / LLM — 6 mois à partir de mars 2027</span>
+  <a href="mailto:sawadogoezechiel09@gmail.com">Me contacter</a>
+</div></div>
+<div class="wrap">
+<nav class="nav" aria-label="Navigation principale">
+  <a class="brand" href="../index.html">E. Sawadogo</a>
+  <ul>
+    <li><a href="../index.html">Accueil</a></li>
+    <li><a href="../projets/index.html" aria-current="page">Projets</a></li>
+    <li><a href="../publications.html">Publications</a></li>
+    <li><a href="../ecrits.html">Écrits</a></li>
+    <li><a href="../parcours.html">Parcours</a></li>
+  </ul>
+</nav>
+
+<main id="contenu" class="page">
+  <div class="crumb"><a href="index.html">Projets</a> / Reconnaître des caractères dans des monogrammes de sceaux byzantins</div>
+  <h1>Reconnaître des caractères dans des monogrammes de sceaux byzantins</h1>
+  <p class="sub">Un pipeline semi-automatique qui localise puis identifie les lettres grecques enchevêtrées dans les monogrammes, pour constituer une base d'images annotées exploitable par la recherche.</p>
+  <dl class="facts"><div><dt>Période</dt><dd>Janv. – juin 2026</dd></div><div><dt>Cadre</dt><dd>Mémoire de M1 · projet ANR BHAI</dd></div><div><dt>Encadrement</dt><dd>Victoria Eyharabide</dd></div><div><dt>Auteurs</dt><dd>Mamadou Diouhé Barry, Ezéchiel Sawadogo</dd></div><div><dt>Résultat</dt><dd>18/20, major de promotion</dd></div></dl>
+
+  <figure><img src="../assets/img/sceau-byzantin.jpg" alt="Sceau byzantin en plomb portant un monogramme" width="803" height="715"><figcaption>Sceau byzantin en plomb : un monogramme superpose plusieurs lettres grecques, qui admettent parfois plusieurs lectures.</figcaption></figure>
+  <h2>Le problème</h2>
+  <p>Les sceaux de plomb byzantins sont une source majeure pour l'histoire de l'Empire : ils identifient leurs propriétaires par des inscriptions, des scènes et des <b>monogrammes</b>. Un monogramme superpose plusieurs lettres en un seul dessin ; le même agencement de traits peut admettre plusieurs lectures. Les déchiffrer demande un expert, alors qu'il existe des dizaines de milliers de sceaux.</p>
+  <h2>L'approche</h2>
+  <p>Séparer les deux difficultés : d'abord <b>localiser</b> chaque caractère dans l'enchevêtrement, ensuite l'<b>identifier</b>. Nous avons annoté le corpus (boîtes polygonales), entraîné les modèles en validation croisée et analysé les confusions classe par classe.</p>
+  <div class="pipeline"><span>Image du sceau</span>→<span>YOLOv8s <em>détection</em></span>→<span>Vignettes</span>→<span>ResNet18 <em>classification</em></span>→<span>Lettres</span></div>
+  <h2>Résultats</h2>
+  <div class="kpis">
+    <div><b>0,778</b><span>mAP@50 en détection (5 folds)</span></div>
+    <div><b>96,7 %</b><span>exactitude en classification</span></div>
+    <div><b>0,937</b><span>F1-macro</span></div>
+  </div>
+  <ul class="dots">
+    <li><b>Détection</b> : YOLOv8s, 100 époques, images de 640 px — 351 images, 49 classes, validation croisée à 5 folds.</li>
+    <li><b>Classification</b> : ResNet18 fine-tuné, comparé à un CNN simple et à ViT-Tiny — 2 143 vignettes, 26 classes.</li>
+  </ul>
+  <h2>Essayer le modèle</h2>
+  <p>Le détecteur YOLOv8s est <a href="https://huggingface.co/spaces/Ezeck01/byzantine-seal-reader">accessible en ligne</a> : on dépose le dessin d'un monogramme et il encadre et nomme chaque lettre.</p>
+  <h2>Prolongement : la publication DH2026</h2>
+  <p>Le même corpus a donné lieu à un article présenté à <b>Digital Humanities 2026</b> (Daejeon, Corée du Sud) : classification de l'état de conservation de 625 sceaux en quatre niveaux (M0–M3) par comparaison d'encodeurs pré-entraînés, DINOv2-Small donnant la meilleure baseline. Voir <a href="../publications.html">Publications</a>.</p>
+  <p class="stack">PyTorch · Ultralytics YOLOv8 · torchvision · scikit-learn · Supervisely · Label Studio · Google Colab (GPU T4)</p>
+  <div class="btns"><a class="btn primary" href="https://huggingface.co/spaces/Ezeck01/byzantine-seal-reader">Essayer la démo en ligne</a><a class="btn" href="https://github.com/ezechiel-sawadogo-nlp/seal-monogram-pipeline/blob/main/docs/memoire_M1_2026_Barry_Sawadogo.pdf">Manuscrit du mémoire (PDF)</a><a class="btn" href="https://github.com/ezechiel-sawadogo-nlp/seal-monogram-pipeline">Code sur GitHub</a><a class="btn" href="https://huggingface.co/Ezeck01/byzantine-seal-monograms">Modèle sur Hugging Face</a></div>
+  <div class="next"><span></span><a href="discours-haineux.html">Discours haineux →</a></div>
+</main>
+<footer>
+  <span>© 2026 Ezéchiel Sawadogo · Linguiste-informaticien, Paris</span>
+  <nav aria-label="Liens externes">
+    <a href="mailto:sawadogoezechiel09@gmail.com">E-mail</a><a href="https://www.linkedin.com/in/ez%C3%A9chiel-sawadogo-483079291/">LinkedIn</a><a href="https://github.com/ezechiel-sawadogo-nlp">GitHub</a><a href="https://huggingface.co/Ezeck01">Hugging Face</a><a href="https://substack.com/@motspouvoir">Mots &amp; Pouvoir</a>
+  </nav>
+</footer>
+</div>
+</body>
+</html>

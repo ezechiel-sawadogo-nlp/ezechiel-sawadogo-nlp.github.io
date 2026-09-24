@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moteur de recherche sémantique — Ezéchiel Sawadogo</title>
+<meta name="description" content="Moteur de recherche sémantique (Sentence-Transformers, FAISS, Streamlit) réalisé par Ezéchiel Sawadogo.">
+<meta name="author" content="Ezéchiel Sawadogo">
+<link rel="canonical" href="https://ezechiel-sawadogo-nlp.github.io/projets/recherche-semantique.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Moteur de recherche sémantique — Ezéchiel Sawadogo">
+<meta property="og:description" content="Moteur de recherche sémantique (Sentence-Transformers, FAISS, Streamlit) réalisé par Ezéchiel Sawadogo.">
+<meta property="og:url" content="https://ezechiel-sawadogo-nlp.github.io/projets/recherche-semantique.html">
+<meta property="og:image" content="https://ezechiel-sawadogo-nlp.github.io/assets/img/recherche-semantique.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CreativeWork",
+ "name": "Moteur de recherche sémantique",
+ "description": "Moteur de recherche sémantique (Sentence-Transformers, FAISS, Streamlit) réalisé par Ezéchiel Sawadogo.",
+ "author": {
+  "@type": "Person",
+  "name": "Ezéchiel Sawadogo",
+  "url": "https://ezechiel-sawadogo-nlp.github.io/"
+ },
+ "url": "https://ezechiel-sawadogo-nlp.github.io/projets/recherche-semantique.html"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="band"><div class="wrap">
+  <span>Disponible pour un stage de fin d'études NLP / LLM — 6 mois à partir de mars 2027</span>
+  <a href="mailto:sawadogoezechiel09@gmail.com">Me contacter</a>
+</div></div>
+<div class="wrap">
+<nav class="nav" aria-label="Navigation principale">
+  <a class="brand" href="../index.html">E. Sawadogo</a>
+  <ul>
+    <li><a href="../index.html">Accueil</a></li>
+    <li><a href="../projets/index.html" aria-current="page">Projets</a></li>
+    <li><a href="../publications.html">Publications</a></li>
+    <li><a href="../ecrits.html">Écrits</a></li>
+    <li><a href="../parcours.html">Parcours</a></li>
+  </ul>
+</nav>
+
+<main id="contenu" class="page">
+  <div class="crumb"><a href="index.html">Projets</a> / Moteur de recherche sémantique</div>
+  <h1>Moteur de recherche sémantique</h1>
+  <p class="sub">Un moteur qui compare les requêtes aux documents par le sens, et non par correspondance de mots-clés.</p>
+  <dl class="facts"><div><dt>Période</dt><dd>2026</dd></div><div><dt>Type</dt><dd>Projet personnel</dd></div><div><dt>Modèle</dt><dd>all-MiniLM-L6-v2</dd></div><div><dt>Interface</dt><dd>Streamlit</dd></div></dl>
+
+  <figure><img src="../assets/img/recherche-semantique.jpg" alt="Interface Streamlit du moteur de recherche sémantique" loading="lazy"><figcaption>L'interface de recherche : chaque résultat est accompagné de son score de similarité.</figcaption></figure>
+  <h2>Fonctionnement</h2>
+  <div class="pipeline"><span>Documents</span>→<span>Sentence-Transformers <em>plongements 384 d</em></span>→<span>Normalisation L2</span>→<span>FAISS <em>IndexFlatIP</em></span>→<span>Top-k</span></div>
+  <ul class="dots">
+    <li>Chaque document est encodé en vecteur dense par <b>all-MiniLM-L6-v2</b> (384 dimensions), puis normalisé.</li>
+    <li>Les vecteurs sont stockés dans un index FAISS <b>IndexFlatIP</b> : comme ils sont normalisés, le produit scalaire est exactement la <b>similarité cosinus</b>, d'où des scores lisibles entre 0 et 1.</li>
+    <li>La requête est encodée de la même façon ; FAISS renvoie les documents les plus proches.</li>
+  </ul>
+  <h2>Choix et limites</h2>
+  <p>La recherche exhaustive est exacte et suffisante à l'échelle du corpus (20 documents rédigés à la main sur l'IA, le machine learning et le TAL). Sur plusieurs centaines de milliers de documents, il faudrait passer à un index approximatif de type IVF ou HNSW. Le corpus est remplaçable par n'importe quel fichier JSON au même format.</p>
+  <p class="stack">Python · Sentence-Transformers · FAISS · Streamlit</p>
+  <div class="btns"><a class="btn primary" href="https://github.com/ezechiel-sawadogo-nlp/semantic-search">Code sur GitHub</a></div>
+  <div class="next"><a href="ontologie-musee-caire.html">← Ontologie du Musée du Caire</a><span></span></div>
+</main>
+<footer>
+  <span>© 2026 Ezéchiel Sawadogo · Linguiste-informaticien, Paris</span>
+  <nav aria-label="Liens externes">
+    <a href="mailto:sawadogoezechiel09@gmail.com">E-mail</a><a href="https://www.linkedin.com/in/ez%C3%A9chiel-sawadogo-483079291/">LinkedIn</a><a href="https://github.com/ezechiel-sawadogo-nlp">GitHub</a><a href="https://huggingface.co/Ezeck01">Hugging Face</a><a href="https://substack.com/@motspouvoir">Mots &amp; Pouvoir</a>
+  </nav>
+</footer>
+</div>
+</body>
+</html>

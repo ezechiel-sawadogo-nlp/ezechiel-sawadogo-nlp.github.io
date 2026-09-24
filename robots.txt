@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ezechiel-sawadogo-nlp.github.io/sitemap.xml

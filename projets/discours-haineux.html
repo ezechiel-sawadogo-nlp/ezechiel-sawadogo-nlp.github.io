@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Détection de discours haineux en français — Ezéchiel Sawadogo</title>
+<meta name="description" content="Détection de discours haineux en français avec CamemBERT : audit du corpus, perte pondérée, seuil ajusté — F1 0,83. Projet d'Ezéchiel Sawadogo.">
+<meta name="author" content="Ezéchiel Sawadogo">
+<link rel="canonical" href="https://ezechiel-sawadogo-nlp.github.io/projets/discours-haineux.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Détection de discours haineux en français — Ezéchiel Sawadogo">
+<meta property="og:description" content="Détection de discours haineux en français avec CamemBERT : audit du corpus, perte pondérée, seuil ajusté — F1 0,83. Projet d'Ezéchiel Sawadogo.">
+<meta property="og:url" content="https://ezechiel-sawadogo-nlp.github.io/projets/discours-haineux.html">
+<meta property="og:image" content="https://ezechiel-sawadogo-nlp.github.io/assets/img/ezechiel-sawadogo.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CreativeWork",
+ "name": "Détection de discours haineux en français",
+ "description": "Détection de discours haineux en français avec CamemBERT : audit du corpus, perte pondérée, seuil ajusté — F1 0,83. Projet d'Ezéchiel Sawadogo.",
+ "author": {
+  "@type": "Person",
+  "name": "Ezéchiel Sawadogo",
+  "url": "https://ezechiel-sawadogo-nlp.github.io/"
+ },
+ "url": "https://ezechiel-sawadogo-nlp.github.io/projets/discours-haineux.html"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="band"><div class="wrap">
+  <span>Disponible pour un stage de fin d'études NLP / LLM — 6 mois à partir de mars 2027</span>
+  <a href="mailto:sawadogoezechiel09@gmail.com">Me contacter</a>
+</div></div>
+<div class="wrap">
+<nav class="nav" aria-label="Navigation principale">
+  <a class="brand" href="../index.html">E. Sawadogo</a>
+  <ul>
+    <li><a href="../index.html">Accueil</a></li>
+    <li><a href="../projets/index.html" aria-current="page">Projets</a></li>
+    <li><a href="../publications.html">Publications</a></li>
+    <li><a href="../ecrits.html">Écrits</a></li>
+    <li><a href="../parcours.html">Parcours</a></li>
+  </ul>
+</nav>
+
+<main id="contenu" class="page">
+  <div class="crumb"><a href="index.html">Projets</a> / Détection de discours haineux en français</div>
+  <h1>Détection de discours haineux en français</h1>
+  <p class="sub">Un classifieur CamemBERT pour repérer les messages haineux en ligne, et surtout une évaluation honnête : audit du corpus, validation séparée, seuil de décision choisi sur des données dédiées.</p>
+  <dl class="facts"><div><dt>Période</dt><dd>2026</dd></div><div><dt>Type</dt><dd>Projet personnel</dd></div><div><dt>Modèle</dt><dd>CamemBERT (camembert-base)</dd></div><div><dt>Données</dt><dd>FrenchHateSpeechSuperset</dd></div></dl>
+
+  <h2>Le problème</h2>
+  <p>Détecter automatiquement les messages haineux pour aider la modération. Deux pièges classiques : un corpus déséquilibré, où un modèle naïf apprend à toujours répondre « non haineux », et une évaluation trop optimiste.</p>
+  <h2>Ce qu'un audit des données a révélé</h2>
+  <p>Le jeu de données compte <b>42 660 lignes, mais seulement 7 499 textes distincts</b> : plus de 80 % des lignes sont des doublons. Dans une première version, les mêmes phrases se retrouvaient à la fois en entraînement et en test, et les résultats n'étaient pas fiables (précision de 0,20 sur la classe « haineux »). J'ai donc tout repris.</p>
+  <h2>La démarche (v2)</h2>
+  <div class="pipeline"><span>Déduplication</span>→<span>Split 70 / 15 / 15 <em>stratifié</em></span>→<span>CamemBERT <em>perte pondérée</em></span>→<span>Seuil <em>choisi sur la validation</em></span>→<span>Test <em>une seule fois</em></span></div>
+  <ul class="dots">
+    <li><b>Trois jeux distincts</b> : 5 249 exemples d'entraînement, 1 125 de validation, 1 125 de test. Le test n'est utilisé qu'une fois, à la fin.</li>
+    <li><b>Perte pondérée</b> par l'inverse de la fréquence des classes, et meilleur modèle choisi sur le F1 « haineux » en validation.</li>
+    <li><b>Seuil de décision ajusté</b> : 0,23 plutôt que 0,5. En modération, rater un message haineux coûte plus cher qu'une fausse alerte.</li>
+  </ul>
+  <h2>Résultats sur le test</h2>
+  <div class="kpis">
+    <div><b>0,83</b><span>F1, classe « haineux »</span></div>
+    <div><b>0,79</b><span>précision</span></div>
+    <div><b>0,88</b><span>rappel</span></div>
+    <div><b>0,90</b><span>PR-AUC</span></div>
+  </div>
+  <p>Sur 1 125 messages jamais vus : 489 messages haineux détectés, 66 manqués, 129 fausses alertes.</p>
+  <h2>Limites</h2>
+  <ul class="dots">
+    <li>Les <b>menaces implicites</b> échappent encore au modèle : « Je vais te retrouver et tu vas le regretter » est classé non haineux. Il s'appuie surtout sur le vocabulaire explicite.</li>
+    <li>Certaines étiquettes du corpus sont discutables, et le corpus reste modeste après déduplication.</li>
+    <li>C'est un outil d'aide à la modération, pas un juge : la relecture humaine reste indispensable.</li>
+  </ul>
+  <p class="stack">Python · Transformers · CamemBERT · PyTorch · scikit-learn · Google Colab (GPU T4)</p>
+  <div class="btns"><a class="btn primary" href="https://huggingface.co/spaces/Ezeck01/detecteur-discours-haineux">Essayer la démo</a><a class="btn" href="https://huggingface.co/Ezeck01/camembert-hate-speech-fr">Modèle sur Hugging Face</a></div>
+  <div class="next"><a href="sceaux-byzantins.html">← Sceaux byzantins</a><a href="delia.html">DÉLIA →</a></div>
+</main>
+<footer>
+  <span>© 2026 Ezéchiel Sawadogo · Linguiste-informaticien, Paris</span>
+  <nav aria-label="Liens externes">
+    <a href="mailto:sawadogoezechiel09@gmail.com">E-mail</a><a href="https://www.linkedin.com/in/ez%C3%A9chiel-sawadogo-483079291/">LinkedIn</a><a href="https://github.com/ezechiel-sawadogo-nlp">GitHub</a><a href="https://huggingface.co/Ezeck01">Hugging Face</a><a href="https://substack.com/@motspouvoir">Mots &amp; Pouvoir</a>
+  </nav>
+</footer>
+</div>
+</body>
+</html>

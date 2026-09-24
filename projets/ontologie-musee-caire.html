@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ontologie des artefacts funéraires du Musée égyptien du Caire — Ezéchiel Sawadogo</title>
+<meta name="description" content="Ontologie OWL 2 et règles SWRL des artefacts funéraires du Musée égyptien du Caire : raisonnement automatique avec Pellet — projet de web sémantique, Sorbonne Université.">
+<meta name="author" content="Ezéchiel Sawadogo">
+<link rel="canonical" href="https://ezechiel-sawadogo-nlp.github.io/projets/ontologie-musee-caire.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ontologie des artefacts funéraires du Musée égyptien du Caire — Ezéchiel Sawadogo">
+<meta property="og:description" content="Ontologie OWL 2 et règles SWRL des artefacts funéraires du Musée égyptien du Caire : raisonnement automatique avec Pellet — projet de web sémantique, Sorbonne Université.">
+<meta property="og:url" content="https://ezechiel-sawadogo-nlp.github.io/projets/ontologie-musee-caire.html">
+<meta property="og:image" content="https://ezechiel-sawadogo-nlp.github.io/assets/img/ontologie-protege.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CreativeWork",
+ "name": "Ontologie des artefacts funéraires du Musée égyptien du Caire",
+ "description": "Ontologie OWL 2 et règles SWRL des artefacts funéraires du Musée égyptien du Caire : raisonnement automatique avec Pellet — projet de web sémantique, Sorbonne Université.",
+ "author": {
+  "@type": "Person",
+  "name": "Ezéchiel Sawadogo",
+  "url": "https://ezechiel-sawadogo-nlp.github.io/"
+ },
+ "url": "https://ezechiel-sawadogo-nlp.github.io/projets/ontologie-musee-caire.html"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="band"><div class="wrap">
+  <span>Disponible pour un stage de fin d'études NLP / LLM — 6 mois à partir de mars 2027</span>
+  <a href="mailto:sawadogoezechiel09@gmail.com">Me contacter</a>
+</div></div>
+<div class="wrap">
+<nav class="nav" aria-label="Navigation principale">
+  <a class="brand" href="../index.html">E. Sawadogo</a>
+  <ul>
+    <li><a href="../index.html">Accueil</a></li>
+    <li><a href="../projets/index.html" aria-current="page">Projets</a></li>
+    <li><a href="../publications.html">Publications</a></li>
+    <li><a href="../ecrits.html">Écrits</a></li>
+    <li><a href="../parcours.html">Parcours</a></li>
+  </ul>
+</nav>
+
+<main id="contenu" class="page">
+  <div class="crumb"><a href="index.html">Projets</a> / Ontologie des artefacts funéraires du Musée égyptien du Caire</div>
+  <h1>Ontologie des artefacts funéraires du Musée égyptien du Caire</h1>
+  <p class="sub">Comment faire en sorte qu'une machine ne se contente pas de stocker des informations sur des objets de musée, mais sache aussi en raisonner ?</p>
+  <dl class="facts"><div><dt>Période</dt><dd>Nov. – déc. 2025</dd></div><div><dt>Cadre</dt><dd>Web sémantique, Sorbonne Université</dd></div><div><dt>Équipe</dt><dd>Ezéchiel Sawadogo, Mamadou Diouhé Barry, Faycal Salhi, Alexiane Arphexad, Victoria Eyharabide</dd></div><div><dt>Outils</dt><dd>Protégé, Pellet, owlready2</dd></div></dl>
+
+  <figure><img src="../assets/img/ontologie-protege.jpg" alt="Fiche du sarcophage d'Amenhotep III dans Protégé, avec les inférences du raisonneur en jaune" width="1400" height="740"><figcaption>Dans Protégé, tout ce qui apparaît en jaune a été déduit par le raisonneur, et non saisi à la main.</figcaption></figure>
+  <h2>L'idée</h2>
+  <p>Une ontologie OWL 2 consacrée aux sarcophages et cercueils royaux du Musée égyptien du Caire : défunts, archéologues, tombes, dynasties, matériaux, musées et expositions. Elle ne se limite pas à décrire : à partir du seul défunt d'un cercueil, le raisonneur infère sa dynastie, sa période historique, son caractère royal et sa localisation actuelle (ville, pays, continent).</p>
+  <div class="kpis">
+    <div><b>60</b><span>classes</span></div>
+    <div><b>61</b><span>propriétés</span></div>
+    <div><b>121</b><span>individus</span></div>
+    <div><b>6</b><span>règles SWRL</span></div>
+  </div>
+  <h2>Ce qui a été mis en œuvre</h2>
+  <ul class="dots">
+    <li>Chaînes de propriétés, restrictions, classes définies et disjonctions.</li>
+    <li><b>Règles SWRL</b> : datation automatique des objets, détection des pièces conservées hors de leur pays d'origine (le sarcophage de Séthi Ier est à Londres), priorités de restauration, tarifs des visiteurs.</li>
+    <li><b>Modélisation des exceptions</b> dans un formalisme qui n'en admet pas : Hatshepsout, à la fois reine et pharaon ; distinction entre sarcophage en pierre et cercueil en or ; hypothèse du monde ouvert.</li>
+    <li><b>Contrôle de cohérence</b> : une erreur de saisie (un « sarcophage en bois ») est détectée et expliquée par le raisonneur.</li>
+    <li>Raisonnement avec Pellet, 11 requêtes SPARQL, et un script Python (owlready2) qui reproduit toutes les inférences.</li>
+  </ul>
+  <p class="stack">OWL 2 · SWRL · SPARQL · Protégé · Pellet · Python · owlready2</p>
+  <div class="btns"><a class="btn primary" href="https://github.com/ezechiel-sawadogo-nlp/ontologie-musee-caire">Code et ontologie sur GitHub</a></div>
+  <div class="next"><a href="catastrophes-naturelles.html">← Catastrophes naturelles</a><a href="recherche-semantique.html">Recherche sémantique →</a></div>
+</main>
+<footer>
+  <span>© 2026 Ezéchiel Sawadogo · Linguiste-informaticien, Paris</span>
+  <nav aria-label="Liens externes">
+    <a href="mailto:sawadogoezechiel09@gmail.com">E-mail</a><a href="https://www.linkedin.com/in/ez%C3%A9chiel-sawadogo-483079291/">LinkedIn</a><a href="https://github.com/ezechiel-sawadogo-nlp">GitHub</a><a href="https://huggingface.co/Ezeck01">Hugging Face</a><a href="https://substack.com/@motspouvoir">Mots &amp; Pouvoir</a>
+  </nav>
+</footer>
+</div>
+</body>
+</html>
