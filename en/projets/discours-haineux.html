@@ -14,7 +14,7 @@
 <meta property="og:title" content="Hate speech detection in French — Ezéchiel Sawadogo">
 <meta property="og:description" content="Hate speech detection in French with CamemBERT: corpus audit, weighted loss, tuned threshold — F1 0.83. A project by Ezéchiel Sawadogo.">
 <meta property="og:url" content="https://ezechiel-sawadogo-nlp.github.io/en/projets/discours-haineux.html">
-<meta property="og:image" content="https://ezechiel-sawadogo-nlp.github.io/assets/img/partage.png">
+<meta property="og:image" content="https://ezechiel-sawadogo-nlp.github.io/assets/img/discours-haineux.jpg">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
@@ -66,6 +66,7 @@
   <p class="sub">A CamemBERT classifier that flags hateful messages online, and above all an honest evaluation: corpus audit, separate validation set, decision threshold chosen on dedicated data.</p>
   <dl class="facts"><div><dt>Period</dt><dd>2026</dd></div><div><dt>Type</dt><dd>Personal project</dd></div><div><dt>Model</dt><dd>CamemBERT (camembert-base)</dd></div><div><dt>Data</dt><dd>FrenchHateSpeech<wbr>Superset</dd></div></dl>
 
+  <figure><img src="../../assets/img/discours-haineux.jpg" alt="Hate speech detector demo: a message classified as hateful at 87%" width="960" height="540"><figcaption>The online demo (in French): the message is classified as hateful with a probability of 0.87, above the 0.23 threshold.</figcaption></figure>
   <h2>The problem</h2>
   <p>Detect hateful messages automatically to support moderation. Two classic traps: an imbalanced corpus, where a naive model learns to always answer “not hateful”, and an overly optimistic evaluation.</p>
   <h2>What a data audit revealed</h2>

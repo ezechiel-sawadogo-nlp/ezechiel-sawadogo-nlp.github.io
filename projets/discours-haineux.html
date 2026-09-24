@@ -14,7 +14,7 @@
 <meta property="og:title" content="Détection de discours haineux en français — Ezéchiel Sawadogo">
 <meta property="og:description" content="Détection de discours haineux en français avec CamemBERT : audit du corpus, perte pondérée, seuil ajusté — F1 0,83. Projet d'Ezéchiel Sawadogo.">
 <meta property="og:url" content="https://ezechiel-sawadogo-nlp.github.io/projets/discours-haineux.html">
-<meta property="og:image" content="https://ezechiel-sawadogo-nlp.github.io/assets/img/partage.png">
+<meta property="og:image" content="https://ezechiel-sawadogo-nlp.github.io/assets/img/discours-haineux.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -66,6 +66,7 @@
   <p class="sub">Un classifieur CamemBERT pour repérer les messages haineux en ligne, et surtout une évaluation honnête : audit du corpus, validation séparée, seuil de décision choisi sur des données dédiées.</p>
   <dl class="facts"><div><dt>Période</dt><dd>2026</dd></div><div><dt>Type</dt><dd>Projet personnel</dd></div><div><dt>Modèle</dt><dd>CamemBERT (camembert-base)</dd></div><div><dt>Données</dt><dd>FrenchHateSpeech<wbr>Superset</dd></div></dl>
 
+  <figure><img src="../assets/img/discours-haineux.jpg" alt="Démo du détecteur de discours haineux : un message classé haineux à 87 %" width="960" height="540"><figcaption>La démo en ligne : le message est classé haineux avec une probabilité de 0,87, au-dessus du seuil de 0,23.</figcaption></figure>
   <h2>Le problème</h2>
   <p>Détecter automatiquement les messages haineux pour aider la modération. Deux pièges classiques : un corpus déséquilibré, où un modèle naïf apprend à toujours répondre « non haineux », et une évaluation trop optimiste.</p>
   <h2>Ce qu'un audit des données a révélé</h2>
