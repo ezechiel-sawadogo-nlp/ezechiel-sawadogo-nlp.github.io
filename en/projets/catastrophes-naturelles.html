@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multimodal classification of natural disasters — Ezéchiel Sawadogo</title>
+<meta name="description" content="Multimodal (seismic + audio) classification of natural disasters by model fusion — Master's project by Ezéchiel Sawadogo, Sorbonne Université.">
+<meta name="author" content="Ezéchiel Sawadogo">
+<link rel="canonical" href="https://ezechiel-sawadogo-nlp.github.io/en/projets/catastrophes-naturelles.html">
+<link rel="alternate" hreflang="fr" href="https://ezechiel-sawadogo-nlp.github.io/projets/catastrophes-naturelles.html">
+<link rel="alternate" hreflang="en" href="https://ezechiel-sawadogo-nlp.github.io/en/projets/catastrophes-naturelles.html">
+<link rel="alternate" hreflang="x-default" href="https://ezechiel-sawadogo-nlp.github.io/projets/catastrophes-naturelles.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multimodal classification of natural disasters — Ezéchiel Sawadogo">
+<meta property="og:description" content="Multimodal (seismic + audio) classification of natural disasters by model fusion — Master's project by Ezéchiel Sawadogo, Sorbonne Université.">
+<meta property="og:url" content="https://ezechiel-sawadogo-nlp.github.io/en/projets/catastrophes-naturelles.html">
+<meta property="og:image" content="https://ezechiel-sawadogo-nlp.github.io/assets/img/partage.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta name="color-scheme" content="dark light">
+<meta name="google-site-verification" content="jYLRHohlVg5KZ3k0y42-xMYuP8FMusxs7RiKfnTmHJ4">
+<script>document.documentElement.classList.remove("no-js");try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CreativeWork",
+ "name": "Multimodal classification of natural disasters",
+ "description": "Multimodal (seismic + audio) classification of natural disasters by model fusion — Master's project by Ezéchiel Sawadogo, Sorbonne Université.",
+ "author": {
+  "@type": "Person",
+  "name": "Ezéchiel Sawadogo",
+  "url": "https://ezechiel-sawadogo-nlp.github.io/"
+ },
+ "url": "https://ezechiel-sawadogo-nlp.github.io/en/projets/catastrophes-naturelles.html",
+ "inLanguage": "en"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenu">Skip to content</a>
+<div class="band"><div class="wrap">
+  <span>Available for a 6-month NLP / LLM end-of-studies internship from March 2027</span>
+  <a href="mailto:sawadogoezechiel09@gmail.com">Contact me</a>
+</div></div>
+<div class="wrap">
+<nav class="nav" aria-label="Main navigation">
+  <a class="brand" href="../index.html">E. Sawadogo</a>
+  <div class="tools">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../projets/index.html" aria-current="page">Projects</a></li>
+    <li><a href="../publications.html">Publications</a></li>
+    <li><a href="../ecrits.html">Writing</a></li>
+    <li><a href="../parcours.html">About</a></li>
+  </ul>
+  <button class="theme-btn" type="button" id="theme-btn" aria-label="Toggle light and dark theme"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>theme</span></button>
+  <a class="lang-btn" href="../../projets/catastrophes-naturelles.html" hreflang="fr" lang="fr" title="Version française">FR</a>
+  </div>
+</nav>
+
+<main id="contenu" class="page">
+  <div class="crumb"><a href="index.html">Projects</a> / Multimodal classification of natural disasters</div>
+  <h1>Multimodal classification of natural disasters</h1>
+  <p class="sub">A system that combines tabular seismic data and synthetic audio signals to detect natural disasters (earthquakes, tsunamis…) automatically.</p>
+  <dl class="facts"><div><dt>Period</dt><dd>Oct. – Dec. 2025</dd></div><div><dt>Context</dt><dd>MSc Language &amp; Computer Science (year 1), Sorbonne Université</dd></div><div><dt>Supervisors</dt><dd>Laurence Devillers, Nour Ben Chaabene</dd></div><div><dt>Team</dt><dd>with Mamadou Diouhé Barry</dd></div></dl>
+
+  <h2>The problem</h2>
+  <p>A natural disaster leaves traces of different kinds: structured seismic measurements and sound signals. Each source on its own is incomplete. The question: <b>does combining these modalities improve detection</b> over the best unimodal model?</p>
+  <h2>The method</h2>
+  <div class="pipeline"><span>Seismic data</span>+<span>Audio signals</span>→<span>StandardScaler <em>preprocessing</em></span>→<span>Unimodal models</span>→<span>Fusion <em>concatenation · stacking · voting</em></span></div>
+  <ul class="dots">
+    <li><b>Unimodal modelling</b>: Naive Bayes, SVM, Random Forest, Gradient Boosting and KNN, compared on each modality.</li>
+    <li><b>Multimodal fusion</b>: early fusion by concatenating features, then late fusion by stacking and voting.</li>
+  </ul>
+  <h2>Results</h2>
+  <div class="kpis">
+    <div><b>88.9%</b><span>accuracy, best unimodal model (Random Forest)</span></div>
+    <div><b>0.886</b><span>F1-score</span></div>
+  </div>
+  <p>Multimodal fusion improves class separability and <b>outperforms the unimodal approaches</b>.</p>
+  <p class="stack">Python · scikit-learn · pandas · NumPy</p>
+  <div class="next"><a href="delia.html">← DÉLIA</a><a href="ontologie-musee-caire.html">Cairo Museum ontology →</a></div>
+</main>
+<footer>
+  <span>© 2026 Ezéchiel Sawadogo · Updated September 2026 · <a href="../mentions-legales.html">Legal notice</a></span>
+  <nav aria-label="External links">
+    <a href="mailto:sawadogoezechiel09@gmail.com">E-mail</a><a href="https://www.linkedin.com/in/ezechiel-sawadogo/">LinkedIn</a><a href="https://github.com/ezechiel-sawadogo-nlp">GitHub</a><a href="https://huggingface.co/Ezeck01">Hugging Face</a><a href="https://substack.com/@motspouvoir">Mots &amp; Pouvoir</a>
+  </nav>
+</footer>
+</div>
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>

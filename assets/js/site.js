@@ -30,7 +30,7 @@
     ["أهلاً وسهلاً", "ar · العربية"]
   ];
   var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var i = 0;
+  var i = document.documentElement.lang === "en" ? 1 : 0;  // la page anglaise commence par « Welcome »
   function show(k, text) {
     word.dir = /[؀-ۿ]/.test(W[k][0]) ? "rtl" : "ltr";
     word.textContent = text;
@@ -53,5 +53,5 @@
     i = (k + 1) % W.length;
     setTimeout(function () { type(i, 1); }, 250);
   }
-  setTimeout(function () { erase(0, Array.from(W[0][0]).length); }, 1800);
+  setTimeout(function () { erase(i, Array.from(W[i][0]).length); }, 1800);
 })();

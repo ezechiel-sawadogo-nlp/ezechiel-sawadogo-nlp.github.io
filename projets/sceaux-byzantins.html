@@ -7,6 +7,9 @@
 <meta name="description" content="Pipeline de détection (YOLOv8s) et de classification (ResNet18) des caractères grecs dans les monogrammes de sceaux byzantins — mémoire de M1 d'Ezéchiel Sawadogo, Sorbonne Université, projet ANR BHAI.">
 <meta name="author" content="Ezéchiel Sawadogo">
 <link rel="canonical" href="https://ezechiel-sawadogo-nlp.github.io/projets/sceaux-byzantins.html">
+<link rel="alternate" hreflang="fr" href="https://ezechiel-sawadogo-nlp.github.io/projets/sceaux-byzantins.html">
+<link rel="alternate" hreflang="en" href="https://ezechiel-sawadogo-nlp.github.io/en/projets/sceaux-byzantins.html">
+<link rel="alternate" hreflang="x-default" href="https://ezechiel-sawadogo-nlp.github.io/projets/sceaux-byzantins.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lecture automatique des monogrammes de sceaux byzantins — Ezéchiel Sawadogo">
 <meta property="og:description" content="Pipeline de détection (YOLOv8s) et de classification (ResNet18) des caractères grecs dans les monogrammes de sceaux byzantins — mémoire de M1 d'Ezéchiel Sawadogo, Sorbonne Université, projet ANR BHAI.">
@@ -30,7 +33,8 @@
   "name": "Ezéchiel Sawadogo",
   "url": "https://ezechiel-sawadogo-nlp.github.io/"
  },
- "url": "https://ezechiel-sawadogo-nlp.github.io/projets/sceaux-byzantins.html"
+ "url": "https://ezechiel-sawadogo-nlp.github.io/projets/sceaux-byzantins.html",
+ "inLanguage": "fr"
 }
 </script>
 </head>
@@ -52,6 +56,7 @@
     <li><a href="../parcours.html">Parcours</a></li>
   </ul>
   <button class="theme-btn" type="button" id="theme-btn" aria-label="Basculer entre thème clair et thème sombre"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>thème</span></button>
+  <a class="lang-btn" href="../en/projets/sceaux-byzantins.html" hreflang="en" lang="en" title="English version">EN</a>
   </div>
 </nav>
 
@@ -78,7 +83,7 @@
     <li><b>Classification</b> : ResNet18 fine-tuné, comparé à un CNN simple et à ViT-Tiny — 2 143 vignettes, 26 classes.</li>
   </ul>
   <h2>Essayer le modèle</h2>
-  <p>Le détecteur YOLOv8s est <a href="https://huggingface.co/spaces/Ezeck01/byzantine-seal-reader">accessible en ligne</a> : on dépose le dessin d'un monogramme et il encadre et nomme chaque lettre.</p>
+  <p>Les deux modèles sont <a href="https://huggingface.co/spaces/Ezeck01/byzantine-seal-reader">accessibles en ligne</a> : on dépose le dessin d'un monogramme et le détecteur encadre et nomme chaque lettre ; on dépose un caractère isolé et ResNet18 l'identifie.</p>
   <h2>Prolongement : la publication DH2026</h2>
   <p>Le même corpus a donné lieu à un article présenté à <b>Digital Humanities 2026</b> (Daejeon, Corée du Sud) : classification de l'état de conservation de 625 sceaux en quatre niveaux (M0–M3) par comparaison d'encodeurs pré-entraînés, DINOv2-Small donnant la meilleure baseline. Voir <a href="../publications.html">Publications</a>.</p>
   <p class="stack">PyTorch · Ultralytics YOLOv8 · torchvision · scikit-learn · Supervisely · Label Studio · Google Colab (GPU T4)</p>

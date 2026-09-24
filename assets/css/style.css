@@ -257,3 +257,8 @@ h2,h3,.page h1,.card .name,.list-c b,.side h4{font-weight:700;letter-spacing:-.0
 .nav .brand{font-size:21px;font-weight:700}
 .figures span{font-size:14.5px}
 .btn,.card .cta a{font-size:16px}
+/* sélecteur de langue */
+.lang-btn{font:500 12.5px/1 var(--mono);color:var(--ink-2);border:1px solid var(--line-2);border-radius:3px;padding:7px 9px;white-space:nowrap}
+.lang-btn:hover{color:var(--ink);border-color:var(--ochre)}
+.nav .lang-btn{border:1px solid var(--line-2);color:var(--ink-2)}
+.nav .lang-btn:hover{border-color:var(--ochre);color:var(--ink)}
